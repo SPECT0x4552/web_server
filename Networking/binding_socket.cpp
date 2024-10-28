@@ -4,6 +4,8 @@
 
 #include "binding_socket.hpp"
 
+
+//constructor
 HDE::binding_socket::binding_socket(int domain, int service, int protocol,
     int port, u_long interface) :
     simple_socket(domain, service, protocol, port, interface) {
@@ -11,6 +13,8 @@ HDE::binding_socket::binding_socket(int domain, int service, int protocol,
     test_connection(get_connection());
 }
 
+
+// init_connection() virtual function definition
 int HDE::binding_socket::init_connection(int sock, struct sockaddr_in address) {
     return bind(sock, (struct sockaddr*)&address, sizeof(address));
 }

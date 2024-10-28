@@ -11,14 +11,13 @@
 namespace HDE {
     class binding_socket : public simple_socket {
     public:
+        // constructor
         binding_socket(int domain, int service, int protocol,
-            int port, u_long interface) : simple_socket(domain, service,
-                protocol, port, interface);
-
-        int init_connection(int sock, struct sockaddr_in address);
+            int port, u_long interface);
+            // virtual function from parent class
+            int init_connection(int sock, struct sockaddr_in address);
     };
 }
-
 
 
 
