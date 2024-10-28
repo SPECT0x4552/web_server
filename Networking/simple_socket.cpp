@@ -49,3 +49,9 @@ int HDE::simple_socket::get_sock() {
 int HDE::simple_socket::get_connection() {
     return connection;
 }
+
+
+//setter function
+void HDE::simple_socket::set_connection(int con) {
+    connection = con;
+}
