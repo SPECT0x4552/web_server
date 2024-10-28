@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <iostream>
 
 
 namespace HDE {
@@ -17,9 +18,22 @@ namespace HDE {
 
     private:
         struct sockaddr_in address;
-        int connection;
+        int sock;
+        int connection; // result of init_connection() call
     public:
+        // constructor
         simple_socket(int domain, int service, int protocol, int port, u_long interface);
+
+        // virtual function for connecting to a network
+        virtual int init_connection(int sock, struct sockaddr_in address) = 0;
+
+        // function to test sockets and connections
+        void test_connection(int);
+
+        // getter functions
+        struct sockaddr_in get_address();
+        int get_sock();
+        int get_connection();
     };
 
 }
