@@ -9,15 +9,17 @@
 
 #include <stdio.h>
 #include <sys/socket.h>
+#include <netinet/in.h>
 
 
 namespace HDE {
-    class simplesocket {
+    class simple_socket {
 
     private:
+        struct sockaddr_in address;
         int connection;
     public:
-        simplesocket(int domain, int service, int protocol);
+        simple_socket(int domain, int service, int protocol, int port, u_long interface);
     };
 
 }
