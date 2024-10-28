@@ -23,9 +23,8 @@ namespace HDE {
     public:
         // constructor
         simple_socket(int domain, int service, int protocol, int port, u_long interface);
-
-        // virtual function for connecting to a network
         virtual int init_connection(int sock, struct sockaddr_in address) = 0;
+
 
         // function to test sockets and connections
         void test_connection(int);
@@ -34,6 +33,9 @@ namespace HDE {
         struct sockaddr_in get_address();
         int get_sock();
         int get_connection();
+
+        // setter functions
+        void set_connection(int domains);
     };
 
 }
